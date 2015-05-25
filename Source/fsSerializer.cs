@@ -308,7 +308,10 @@ namespace FullSerializer {
             // There is no specific converter specified; try all of the general ones to see
             // which ones matches.
             else {
-                if (_cachedConverters.TryGetValue(type, out converter) == false) {
+				bool result = _cachedConverters.TryGetValue(type, out converter);
+				if (result == true)
+					result = converter.CanProcess(type);
+				if (result == false) {
                     for (int i = 0; i < _converters.Count; ++i) {
                         if (_converters[i].CanProcess(type)) {
                             converter = _converters[i];
