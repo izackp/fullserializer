@@ -24,7 +24,12 @@ namespace FullSerializer.Internal {
 
                 fsData serializedData;
 
-                var itemResult = Serializer.TrySerialize(property.StorageType, property.Read(instance), out serializedData);
+				object prop = property.Read(instance);
+				if (prop == null)
+					continue;
+
+				var itemResult = Serializer.TrySerialize(property.StorageType, prop, out serializedData);
+
                 result.AddMessages(itemResult);
                 if (itemResult.Failed) {
                     continue;
