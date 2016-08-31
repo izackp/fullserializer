@@ -151,7 +151,7 @@ namespace FullSerializer.Internal {
     }
 
     public class fsIEnumerableConverter : fsConverter {
-        private fsIEnumerableSerializationAdapter[] _adaptors = new fsIEnumerableSerializationAdapter[] {
+        private readonly fsIEnumerableSerializationAdapter[] _adaptors = {
             new fsIDictionaryAdapter(),
             new fsReflectedAdapter()
         };
@@ -169,7 +169,7 @@ namespace FullSerializer.Internal {
         }
 
         public override bool RequestInheritanceSupport(Type storageType) {
-            return false;
+            return true;
         }
 
         public override bool CanProcess(Type type) {
