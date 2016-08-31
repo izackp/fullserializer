@@ -43,6 +43,10 @@ namespace FullSerializer {
         }
 
         private char Character(int offset) {
+			if (_start + offset >= _input.Length) {
+
+				return Character(0);
+			}
             return _input[_start + offset];
         }
 
