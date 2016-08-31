@@ -1,4 +1,24 @@
-*.meta
 *.suo
-Build Files (DLL)/Build/*
-Build Files (DLL)/obj/*
+*.vscode
+*.DS_Store
+
+# Ignore Unity-specific csproj files.
+/*.csproj
+/*.sln
+
+Library/
+Temp/
+obj/
+
+create_release_dlls.cmd
+
+Assets/Editor
+Assets/Editor.meta
+Assets/Haste
+Assets/Haste.meta
+Assets/VSCode
+Assets/VSCode.meta
+Assets/MyTest.cs
+Assets/MyTest.cs.meta
+Assets/WSATestCertificate.pfx
+Assets/WSATestCertificate.pfx.meta
